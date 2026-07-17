@@ -59,6 +59,18 @@
   to { transform: rotate(360deg); }
 }
 
+@keyframes metallicShine {
+  0% { transform: translate(-30%, -30%) rotate(25deg); opacity: 0; }
+  25% { opacity: 1; }
+  50% { opacity: 0; }
+  100% { transform: translate(30%, 30%) rotate(25deg); opacity: 0; }
+}
+
+@keyframes accentPulse {
+  0%, 100% { opacity: 0.4; width: 1.5rem; }
+  50% { opacity: 0.8; width: 3rem; }
+}
+
 /* ===== Reveal Classes (IntersectionObserver) ===== */
 .reveal {
   opacity: 0;
@@ -95,21 +107,60 @@
   transition-delay: calc(var(--stagger-index, 0) * 0.1s);
 }
 
-/* ===== Hero Particles ===== */
-.particle {
-  position: absolute;
-  width: 3px;
-  height: 3px;
-  background: var(--color-primary-light);
-  border-radius: var(--radius-full);
-  opacity: 0.3;
-  animation: float linear infinite;
-  pointer-events: none;
+/* ===== Background Particles (Sparkle Stars) ===== */
+@keyframes sparkle {
+  0%, 100% { opacity: 0; transform: scale(0) rotate(0deg); }
+  20% { opacity: 0.6; transform: scale(1) rotate(72deg); }
+  40% { opacity: 0.2; transform: scale(0.6) rotate(144deg); }
+  60% { opacity: 0.8; transform: scale(1.1) rotate(216deg); }
+  80% { opacity: 0.3; transform: scale(0.7) rotate(288deg); }
 }
 
-.particle:nth-child(odd) {
-  background: var(--color-secondary);
-  opacity: 0.2;
+.bg-particles {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: -1;
+  overflow: hidden;
+}
+
+.particle {
+  position: absolute;
+  width: 8px;
+  height: 8px;
+  pointer-events: none;
+  opacity: 0;
+  animation: sparkle linear infinite, float linear infinite;
+}
+
+.particle::before {
+  content: '✦';
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 8px;
+  line-height: 1;
+  color: var(--color-primary-light);
+}
+
+.particle:nth-child(odd)::before {
+  content: '✧';
+  font-size: 6px;
+  color: var(--color-metallic);
+}
+
+.particle:nth-child(3n)::before {
+  content: '✦';
+  font-size: 10px;
+  color: var(--color-accent);
+}
+
+.particle:nth-child(5n)::before {
+  content: '⋆';
+  font-size: 7px;
+  color: var(--color-metallic-bright);
 }
 
 /* ===== Glitch Hover ===== */

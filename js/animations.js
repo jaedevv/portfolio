@@ -140,51 +140,21 @@
     setTimeout(type, 1500);
   }
 
-  // ===== Particles =====
+  // ===== Background Sparkle Particles =====
   const particleContainer = document.querySelector('[data-particles]');
   if (particleContainer) {
-    const count = 30;
+    const count = 50;
     for (let i = 0; i < count; i++) {
       const particle = document.createElement('div');
       particle.className = 'particle';
       particle.style.left = `${Math.random() * 100}%`;
       particle.style.top = `${Math.random() * 100}%`;
-      particle.style.width = `${Math.random() * 3 + 2}px`;
-      particle.style.height = particle.style.width;
-      particle.style.animationDuration = `${Math.random() * 10 + 10}s`;
-      particle.style.animationDelay = `${Math.random() * 10}s`;
+      particle.style.animationDuration = `${Math.random() * 6 + 4}s`;
+      particle.style.animationDelay = `${Math.random() * 12}s`;
+      particle.style.fontSize = `${Math.random() * 6 + 4}px`;
       particleContainer.appendChild(particle);
     }
   }
 
-  // ===== Project Filter =====
-  const filterBtns = document.querySelectorAll('[data-filter]');
-  const projectCards = document.querySelectorAll('[data-category]');
 
-  filterBtns.forEach((btn) => {
-    btn.addEventListener('click', () => {
-      filterBtns.forEach((b) => b.classList.remove('active'));
-      btn.classList.add('active');
-
-      const filter = btn.getAttribute('data-filter');
-
-      projectCards.forEach((card) => {
-        const cat = card.getAttribute('data-category');
-        if (filter === 'all' || cat === filter) {
-          card.style.display = 'block';
-          card.style.opacity = '0';
-          requestAnimationFrame(() => {
-            card.style.transition = 'opacity 0.4s ease, transform 0.4s ease';
-            card.style.opacity = '1';
-          });
-        } else {
-          card.style.opacity = '0';
-          card.style.transform = 'scale(0.95)';
-          setTimeout(() => {
-            card.style.display = 'none';
-          }, 400);
-        }
-      });
-    });
-  });
 })();

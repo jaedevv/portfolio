@@ -31,10 +31,12 @@
 }
 
 .about__grid {
-  display: grid;
-  grid-template-columns: 1fr 1.5fr;
-  gap: var(--spacing-4xl);
+  display: flex;
+  flex-direction: column;
   align-items: center;
+  text-align: center;
+  max-width: 720px;
+  margin: 0 auto;
 }
 
 .timeline {
@@ -54,12 +56,6 @@
   padding-bottom: 0;
 }
 
-.projects__grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: var(--spacing-xl);
-}
-
 .skills__grid {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
@@ -74,10 +70,8 @@
 }
 
 .contact__grid {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: var(--spacing-4xl);
-  align-items: start;
+  display: flex;
+  justify-content: center;
 }
 
 .footer__container {

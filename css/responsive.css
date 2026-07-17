@@ -28,26 +28,8 @@
     justify-content: center;
   }
 
-  .about__grid {
-    grid-template-columns: 1fr;
-    text-align: center;
-  }
-
-  .about__image-wrapper {
-    display: flex;
-    justify-content: center;
-  }
-
-  .about__exp-badge {
-    right: 10%;
-  }
-
   .about__info {
     text-align: left;
-  }
-
-  .projects__grid {
-    grid-template-columns: repeat(2, 1fr);
   }
 
   .contact__grid {
@@ -128,10 +110,6 @@
   }
 
   .about__info {
-    grid-template-columns: 1fr;
-  }
-
-  .projects__grid {
     grid-template-columns: 1fr;
   }
 

@@ -6,14 +6,14 @@
   const getPreferred = () => {
     const stored = localStorage.getItem(storageKey);
     if (stored) return stored;
-    return window.matchMedia('(prefers-color-scheme: light)').matches ? 'light' : 'dark';
+    return 'dark';
   };
 
   const applyTheme = (theme) => {
     html.setAttribute('data-theme', theme);
     localStorage.setItem(storageKey, theme);
     document.querySelector('meta[name="theme-color"]').content =
-      theme === 'dark' ? '#0a0a1a' : '#f8fafc';
+      theme === 'dark' ? '#080e1a' : '#f0f4f8';
   };
 
   const toggleTheme = () => {

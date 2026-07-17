@@ -41,7 +41,7 @@
   document.addEventListener('mousemove', updateCursor);
   requestAnimationFrame(updateFollower);
 
-  const hoverElements = document.querySelectorAll('a, button, [data-tilt], .skill-card, .project-card');
+  const hoverElements = document.querySelectorAll('a, button, [data-tilt], .skill-card');
   hoverElements.forEach((el) => {
     el.addEventListener('mouseenter', () => {
       cursor.style.width = '16px';
